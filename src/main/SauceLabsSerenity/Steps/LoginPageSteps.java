@@ -20,7 +20,7 @@ public class LoginPageSteps extends ScenarioSteps{
 
     @Step
     public void setWorkingCredentials(String username,String password){
-        loginPage.insertStandardUser(username);
+        loginPage.insertUser(username);
         loginPage.insertPassword(password);
     }
 

@@ -1,9 +1,10 @@
 package features;
 import Pages.InventoryPage;
 import Pages.LoginPage;
+import Utils.Constants;
 import org.junit.Test;
 
-public class LoginPageTest extends BaseTest{
+public class StandardUserTest extends BaseTest{
 
     private LoginPage loginPage;
     private InventoryPage inventoryPage;
@@ -11,8 +12,8 @@ public class LoginPageTest extends BaseTest{
     @Test
     public void verifyLoginPage(){
         loginPage.open();
-        loginPage.insertStandardUser("standard_user");
-        loginPage.insertPassword("secret_sauce");
+        loginPage.insertUser(Constants.StandardUser);
+        loginPage.insertPassword(Constants.passcode);
         loginPage.clickLogin();
         inventoryPage.verifyPageTile();
     }

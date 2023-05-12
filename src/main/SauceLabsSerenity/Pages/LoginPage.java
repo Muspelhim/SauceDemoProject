@@ -18,7 +18,10 @@ public class LoginPage extends PageObject {
    @FindBy(xpath = "//*[@id = \"login-button\"]")
    private WebElementFacade loginButton;
 
-   public void insertStandardUser(String standard_user){
+   @FindBy(xpath = "//*[@class = \"error-message-container error\"]")
+   private WebElementFacade errorMessage;
+
+   public void insertUser(String standard_user){
       typeInto(usernameTextbox,standard_user);
    }
 
@@ -40,6 +43,10 @@ public class LoginPage extends PageObject {
 
    public void clickLogin(){
       clickOn(loginButton);
+   }
+
+   public void verifyErrorMessage(){
+      errorMessage.shouldContainText("Epic sadface: Sorry, this user has been locked out.");
    }
 
 }
